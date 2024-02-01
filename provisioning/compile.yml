@@ -6,8 +6,4 @@
   roles:
     - init
     - compile
-- name: Create project directory
-  ansible.builtin.file:
-    path: /home/vagrant/sqlite/src
-    state: directory
 
