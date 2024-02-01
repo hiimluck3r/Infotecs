@@ -5,3 +5,9 @@
     dest: /home/vagrant/sqlite
     owner: vagrant
     group: vagrant
+
+- name: Build the container
+  ansible.builtin.shell: "docker build -t sqlite3cmp:latest -f /home/vagrant/sqlite/Dockerfile"
+
+- name: Run the container
+  ansible.builtin.shell: "docker run sqlite3cmp:latest"
