@@ -10,4 +10,10 @@
   ansible.builtin.shell: "docker build -t sqlite3cmp:latest /home/vagrant/sqlite/src/"
 
 - name: Run the container
-  ansible.builtin.shell: "docker run -v /home/vagrant/sqlite/src/bin:/var/sqlite/bin -v /home/vagrant/sqlite/CMakeFiles:/var/sqlite/src/CMakeFiles sqlite3cmp:latest"
+  ansible.builtin.shell: "docker run -v /home/vagrant/sqlite/src/bin:/var/sqlite/bin -v /home/vagrant/sqlite/src/CMakeFiles:/var/sqlite/CMakeFiles sqlite3cmp:latest"
+
+- name: Copy the logs
+  ansible.builtin.fetch:
+    src: /home/vagrant/sqlite/src/CMakeFiles/CMakeOutput.log
+    dest: ../logs/
+    flat: yes
