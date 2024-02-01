@@ -1,10 +1,9 @@
 FROM gcc:latest
-ADD ./sqlite /usr/src/
-COPY . /usr/src/sqlite
-WORKDIR /usr/src/sqlite
 
-RUN apt-get update && apt-get -y install cmake make
+COPY . /var/sqlite/
+WORKDIR /var/sqlite/
+
+RUN apt-get update && apt-get -y install cmake
 
 RUN cmake -S .
-
 CMD ["make"]

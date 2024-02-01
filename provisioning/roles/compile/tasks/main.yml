@@ -6,13 +6,8 @@
     owner: vagrant
     group: vagrant
 
-- name: Create docker-out directory
-  ansible.builtin.file:
-    path: /home/vagrant/sqlite/src/docker-out
-    state: directory
-
 - name: Build the container
   ansible.builtin.shell: "docker build -t sqlite3cmp:latest /home/vagrant/sqlite/src/"
 
 - name: Run the container
-  ansible.builtin.shell: "docker run sqlite3cmp:latest"
+  ansible.builtin.shell: "docker run -v /home/vagrant/sqlite/src/bin:/var/sqlite/bin -v /home/vagrant/sqlite/CMakeFiles:/var/sqlite/src/CMakeFiles sqlite3cmp:latest"
