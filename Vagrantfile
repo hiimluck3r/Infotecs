@@ -15,8 +15,8 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "compile.yml"
-    ansible.inventory_path = "inventory"
+    ansible.compatibility_node = "2.0"
+    ansible.playbook = "provisioning/compile.yml"
     ansible.become = true
   end
 end

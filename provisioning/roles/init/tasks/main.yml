@@ -5,8 +5,13 @@
     name: "*"
     state: latest
 
+- name: Install curl
+  ansible.builtin.apt:
+    name: "curl"
+    state: present
+
 - name: Install docker on a machine
-  ansible.builtin.shell: curl https://get.docker.com | sh
+  ansible.builtin.shell: curl -sSL https://get.docker.com/ | sudo sh
 
 - name: Change privelege of docker
   ansible.builtin.command: chmod +x /usr/bin/docker
