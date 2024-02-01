@@ -10,8 +10,14 @@
     name: "curl"
     state: present
 
+- name: Check if Docker is installed
+  ansible.builtin.command: docker --version
+  register: docker_valid
+  ignore_errors: true
+  
 - name: Install docker on a machine
   ansible.builtin.shell: curl -sSL https://get.docker.com/ | sudo sh
+  when: docker_valid.failed
 
 - name: Change privelege of docker
   ansible.builtin.command: chmod +x /usr/bin/docker

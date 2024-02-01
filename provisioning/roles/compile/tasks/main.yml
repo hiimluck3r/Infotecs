@@ -1,1 +1,7 @@
 ---
+- name: Copy src files
+  copy:
+    src: src
+    dest: /home/vagrant/sqlite
+    owner: vagrant
+    group: vagrant
