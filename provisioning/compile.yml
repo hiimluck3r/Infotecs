@@ -1,0 +1,8 @@
+---
+- hosts: sqlite-cmp
+  gather_facts: yes
+  become: yes
+  
+  roles:
+    - init
+    - docker

@@ -7,8 +7,9 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "debian/bullseye64"
 
-  config.vm.hostname = "sqlite_cmp"
-  config.vm.network :private_network, ip: "192.168.42.42"
+  config.vm.hostname = "sqlite-cmp"
+  config.vm.define "sqlite-cmp"
+  config.vm.network :private_network, ip: "192.168.56.42"
 
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
