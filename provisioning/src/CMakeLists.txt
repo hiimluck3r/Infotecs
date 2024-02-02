@@ -23,7 +23,7 @@ endif()
 if(UNIX)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
 
-    set(OUTPUT_TYPE MODULE)
+    set(OUTPUT_TYPE SHARED)
 endif()
 
 add_library(${OUTPUT_NAME} ${OUTPUT_TYPE} ${SOURCES})
